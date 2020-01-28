@@ -60,7 +60,7 @@ class ArtikelController extends Controller
         if($request->hasFile('foto')){
             $file = $request->file('foto');
             $path = public_path().'/assets/img/artikel/';
-            $filename = str_random(6). '_' .$file->getClientOriginalName();
+            $filename = $file->getClientOriginalName();
             $upload = $file->move($path, $filename);
 
             $artikel->foto = $filename;
