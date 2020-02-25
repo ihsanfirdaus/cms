@@ -111,12 +111,6 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'judul' => 'required',
-            'konten' => 'required|min:50',
-            'id_kategori' => 'required',
-            'tag' => 'required'
-        ]);
         $artikel = Artikel::findOrFail($id);
         $artikel->judul = $request->judul;
         $artikel->slug = str_slug($request->judul, '-');
